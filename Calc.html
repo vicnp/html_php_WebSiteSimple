@@ -1,0 +1,61 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<link rel="icon" href="fav.png">
+		<meta charset="utf-8">
+		<title>Baskara</title>
+		<link href="Calc.css" rel="stylesheet" type="text/css">
+	</head>
+
+	<body>
+
+		<div class="container">
+		  <div class="header"><a href="#"><img src="header.png" alt="logo" name="logo" width="1100" height="200" id="logo" style="background-color: #C6D580; display:block;" /></a>
+
+		    <div class="menu">
+		    <a href="index.html">Inicio</a>
+		    <a class="active" href="Calc.html">Baskara</a>
+		    <a href="sobre.html">Sobre</a>
+		  </div>
+		</div>
+		  <div class="content">
+		    <fieldset>
+		    	<legend>Insira os dados para realizar o calculo:</legend>
+			<form action="" method="POST">
+				AX²:<br>
+				<input name="n1" type"text"><br>
+				BX :<br>
+				<input name="n2" type"text"><br>
+				C  :<br>
+				<input name="n3" type"text"><br>
+
+				<input type="submit" name="calcular" value="Calcular!">
+			</form>
+			</fieldset>
+			<fieldset>
+				<legend>Resultados:</legend>
+			<?php
+				error_reporting(0);
+				$a = $_POST["n1"];
+				$b = $_POST["n2"];
+				$c = $_POST["n3"];
+
+				$delta = ($b * $b) - (4 * $a * $c);
+				$x1 = ((-$b) - (sqrt($delta))) / (2 * $a);
+				$x2 = ((-$b) + (sqrt($delta))) / (2 * $a);
+
+				if (is_nan($x1)==false) {
+		    		echo "Delta: $delta";
+					echo "<br>O 1º resultado é:<br>$x1<br>";
+					echo "<br>O 2º resultado é:<br>$x2<br>";
+				}
+				
+			?>
+			</fieldset>
+		  </div>
+		  <div class="footer">
+		    <p>Victor Nascimento, Análise e Desenvolvimento de Sistemas, Instituto Federal do Espírito Santo - Brasil. 2018</p>
+		    </div>
+		</div>
+	</body>
+</html>
